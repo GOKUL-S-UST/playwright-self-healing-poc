@@ -1,0 +1,44 @@
+name: Maintain tests
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  find-affected:
+    # Same-repo PRs only, and never react to Copilot's own PRs (prevents loops)
+    if: github.event.pull_request.head.repo.full_name == github.repository && !startsWith(github.head_ref, 'copilot/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Find affected specs and build comment
+        run: node scripts/find-affected.js ${{ github.base_ref }}
+
+      - name: Post comment tagging Copilot (once per PR)
+        run: |
+          if [ ! -f comment.md ]; then
+            echo "No relevant impact. Skipping."
+            exit 0
+          fi
+          EXISTING=$(gh pr view "$PR" --json comments --jq '[.comments[].body | select(contains("<!-- self-heal-bot -->"))] | length')
+          if [ "$EXISTING" != "0" ]; then
+            echo "Already commented on this PR. Skipping."
+            exit 0
+          fi
+          gh pr comment "$PR" --body-file comment.md
+        env:
+          PR: ${{ github.event.pull_request.number }}
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.COPILOT_TRIGGER_TOKEN || secrets.GITHUB_TOKEN }}
