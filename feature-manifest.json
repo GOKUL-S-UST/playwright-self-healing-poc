@@ -1,0 +1,14 @@
+{
+  "scenarios": [
+    {
+      "id": "checkout-happy-path",
+      "spec": "tests/happy-path.spec.ts",
+      "files": [
+        "src/pages/*",
+        "src/cart.tsx",
+        "src/data.ts",
+        "src/App.tsx"
+      ]
+    }
+  ]
+}
