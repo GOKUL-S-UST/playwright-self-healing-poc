@@ -17,7 +17,7 @@ export default function ProductDetail() {
       <p>{product.description}</p>
       <p data-testid="product-price">${product.price}</p>
       <button
-        data-testid="add-to-cart"
+        data-testid="add-product-to-cart"
         onClick={() => {
           add(product);
           navigate('/products');

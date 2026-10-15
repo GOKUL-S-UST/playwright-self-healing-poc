@@ -14,7 +14,7 @@ test('happy path: login -> browse -> add to cart -> checkout', async ({ page }) 
   // Product detail
   await expect(page.getByTestId('product-name')).toHaveText('Mechanical Keyboard');
   await expect(page.getByTestId('product-price')).toHaveText('$90');
-  await page.getByTestId('add-to-cart').click();
+  await page.getByTestId('add-product-to-cart').click();
 
   // Checkout
   await page.getByTestId('go-checkout').click();
