@@ -37,13 +37,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <span aria-hidden="true">♡</span>
                 <span className="cart-count" data-testid="header-wishlist-count">{wishlist.length}</span>
               </Link>
-              <Link className="cart-link" data-testid="header-cart-link" to="/checkout" aria-label={`View cart, ${count} items`}
-                onClick={(event) => {
-                  if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
-                    event.preventDefault();
-                    setDrawerOpen(true);
-                  }
-                }}>
+              <Link className="cart-link" data-testid="header-cart-link" to="/checkout" aria-label={`View cart, ${count} items`}>
                 <span aria-hidden="true">▱</span>
                 <span>Cart</span>
                 <span className="cart-count" data-testid="header-cart-count">{count}</span>
