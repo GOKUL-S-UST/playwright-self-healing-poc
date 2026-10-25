@@ -4,12 +4,56 @@
       "id": "checkout-happy-path",
       "spec": "tests/happy-path.spec.ts",
       "files": [
-        "src/pages/*",
+        "src/pages/Login.tsx",
+        "src/pages/Checkout.tsx",
+        "src/pages/ProductDetail.tsx",
         "src/cart.tsx",
-        "src/data.ts",
         "src/App.tsx",
-        "src/components/*",
-        "src/theme.tsx"
+        "src/main.tsx",
+        "src/data.ts"
+      ]
+    },
+    {
+      "id": "search-filter",
+      "spec": "tests/search-filter.spec.ts",
+      "files": [
+        "src/pages/Products.tsx",
+        "src/components/ProductCard.tsx",
+        "src/components/EmptyState.tsx",
+        "src/data.ts"
+      ]
+    },
+    {
+      "id": "cart-management",
+      "spec": "tests/cart.spec.ts",
+      "files": [
+        "src/cart.tsx",
+        "src/storage.ts",
+        "src/components/CartLines.tsx",
+        "src/components/CartDrawer.tsx",
+        "src/components/Layout.tsx",
+        "src/components/ProductCard.tsx",
+        "src/pages/Checkout.tsx"
+      ]
+    },
+    {
+      "id": "wishlist",
+      "spec": "tests/wishlist.spec.ts",
+      "files": [
+        "src/pages/Wishlist.tsx",
+        "src/components/WishlistToggle.tsx",
+        "src/shopping.tsx",
+        "src/components/Layout.tsx"
+      ]
+    },
+    {
+      "id": "product-detail",
+      "spec": "tests/product-detail.spec.ts",
+      "files": [
+        "src/pages/ProductDetail.tsx",
+        "src/components/RecentlyViewed.tsx",
+        "src/shopping.tsx",
+        "src/data.ts"
       ]
     }
   ]
