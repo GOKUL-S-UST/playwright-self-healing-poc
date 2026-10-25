@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useCart } from '../cart';
+import Button from '../components/Button';
+import EmptyState from '../components/EmptyState';
 
 const FREE_SHIPPING_THRESHOLD = 100;
 const SHIPPING_FEE = 10;
@@ -13,30 +15,46 @@ export default function Checkout() {
   const total = subtotal + shipping;
 
   if (placed) {
-    return <h1 data-testid="order-confirmation">Order placed successfully!</h1>;
+    return (
+      <section className="card order-confirmation">
+        <span className="confirmation-mark" aria-hidden="true">✓</span>
+        <h1 data-testid="order-confirmation">Order placed successfully!</h1>
+        <p>Thank you for shopping with Studio Supply.</p>
+      </section>
+    );
   }
 
   return (
-    <div className="card">
-      <h1>Checkout</h1>
-      <ul>
-        {items.map((p, i) => (
-          <li key={i} data-testid="cart-item">{p.name} - ${p.price}</li>
-        ))}
-      </ul>
-      <p data-testid="subtotal">Subtotal: ${subtotal}</p>
-      <p data-testid="shipping">Shipping: ${shipping}</p>
-      <p data-testid="total">Total: ${total}</p>
-      <button
+    <section className="card checkout-card" aria-labelledby="checkout-title">
+      <div>
+        <h1 id="checkout-title">Your cart</h1>
+        <p className="detail-description">Review your items before placing your order.</p>
+      </div>
+      {items.length === 0 ? (
+        <EmptyState title="Your cart is empty">Explore the catalog to find something for your workspace.</EmptyState>
+      ) : (
+        <ul className="checkout-list">
+          {items.map((p, i) => (
+            <li key={i} data-testid="cart-item"><span>{p.name}</span><strong>${p.price}</strong></li>
+          ))}
+        </ul>
+      )}
+      <div className="checkout-totals">
+        <p data-testid="subtotal"><span>Subtotal:</span>{' '}<span>${subtotal}</span></p>
+        <p data-testid="shipping"><span>Shipping:</span>{' '}<span>${shipping}</span></p>
+        <p className="total-row" data-testid="total"><span>Total:</span>{' '}<span>${total}</span></p>
+      </div>
+      <Button
         data-testid="place-order"
         disabled={items.length === 0}
+        className="checkout-submit"
         onClick={() => {
           clear();
           setPlaced(true);
         }}
       >
         Place order
-      </button>
-    </div>
+      </Button>
+    </section>
   );
 }

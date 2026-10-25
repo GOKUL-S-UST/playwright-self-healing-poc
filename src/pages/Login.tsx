@@ -17,11 +17,19 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="card">
-      <h1>Login</h1>
-      <input data-testid="login-username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <input data-testid="login-password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button data-testid="login-submit" type="submit">Sign in</button>
+    <form onSubmit={onSubmit} className="card form-card" aria-labelledby="login-title">
+      <span className="brand-mark" aria-hidden="true">S</span>
+      <h1 id="login-title">Welcome back</h1>
+      <p>Sign in to continue to your workspace essentials.</p>
+      <div className="form-field">
+        <label htmlFor="login-username">Username</label>
+        <input id="login-username" data-testid="login-username" autoComplete="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      </div>
+      <div className="form-field">
+        <label htmlFor="login-password">Password</label>
+        <input id="login-password" data-testid="login-password" type="password" autoComplete="current-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      </div>
+      <button className="button button-primary" data-testid="login-submit" type="submit">Sign in</button>
       {error && <p data-testid="login-error" className="error">{error}</p>}
     </form>
   );
