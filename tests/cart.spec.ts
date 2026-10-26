@@ -24,7 +24,7 @@ test('quantity controls update totals (shipping rule unchanged)', async ({ page 
 
   await page.getByTestId('remove-item-3').click();
   await expect(page.getByTestId('cart-item')).toHaveCount(0);
-  await expect(page.getByTestId('place-order')).toBeDisabled();
+  await expect(page.getByTestId('submit-order')).toBeDisabled();
 });
 
 test('free shipping at $100 or more', async ({ page }) => {
