@@ -36,7 +36,7 @@ export default function Checkout() {
         <p className="total-row" data-testid="total"><span>Total:</span>{' '}<span>${total}</span></p>
       </div>
       <Button
-        data-testid="submit-order"
+        data-testid="place-order"
         disabled={items.length === 0}
         className="checkout-submit"
         onClick={() => {
