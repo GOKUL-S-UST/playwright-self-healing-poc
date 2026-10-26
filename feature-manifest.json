@@ -4,56 +4,82 @@
       "id": "checkout-happy-path",
       "spec": "tests/happy-path.spec.ts",
       "files": [
-        "src/pages/Login.tsx",
-        "src/pages/Checkout.tsx",
-        "src/pages/ProductDetail.tsx",
-        "src/cart.tsx",
         "src/App.tsx",
         "src/main.tsx",
-        "src/data.ts"
+        "src/data.ts",
+        "src/cart.tsx",
+        "src/pages/Login.tsx",
+        "src/pages/Products.tsx",
+        "src/pages/ProductDetail.tsx",
+        "src/pages/Checkout.tsx",
+        "src/components/ProductCard.tsx",
+        "src/components/CartLines.tsx",
+        "src/components/Button.tsx"
       ]
     },
     {
       "id": "search-filter",
       "spec": "tests/search-filter.spec.ts",
       "files": [
+        "src/App.tsx",
+        "src/data.ts",
+        "src/pages/Login.tsx",
         "src/pages/Products.tsx",
         "src/components/ProductCard.tsx",
         "src/components/EmptyState.tsx",
-        "src/data.ts"
+        "src/components/Button.tsx"
       ]
     },
     {
       "id": "cart-management",
       "spec": "tests/cart.spec.ts",
       "files": [
+        "src/App.tsx",
         "src/cart.tsx",
         "src/storage.ts",
+        "src/pages/Login.tsx",
+        "src/pages/Products.tsx",
+        "src/pages/Checkout.tsx",
         "src/components/CartLines.tsx",
         "src/components/CartDrawer.tsx",
         "src/components/Layout.tsx",
         "src/components/ProductCard.tsx",
-        "src/pages/Checkout.tsx"
+        "src/components/Toast.tsx",
+        "src/components/Button.tsx"
       ]
     },
     {
       "id": "wishlist",
       "spec": "tests/wishlist.spec.ts",
       "files": [
+        "src/App.tsx",
+        "src/cart.tsx",
+        "src/shopping.tsx",
+        "src/storage.ts",
+        "src/pages/Login.tsx",
         "src/pages/Wishlist.tsx",
         "src/components/WishlistToggle.tsx",
-        "src/shopping.tsx",
-        "src/components/Layout.tsx"
+        "src/components/ProductCard.tsx",
+        "src/components/Layout.tsx",
+        "src/components/Toast.tsx",
+        "src/components/Button.tsx"
       ]
     },
     {
       "id": "product-detail",
       "spec": "tests/product-detail.spec.ts",
       "files": [
-        "src/pages/ProductDetail.tsx",
-        "src/components/RecentlyViewed.tsx",
+        "src/App.tsx",
+        "src/data.ts",
+        "src/cart.tsx",
         "src/shopping.tsx",
-        "src/data.ts"
+        "src/pages/Login.tsx",
+        "src/pages/Products.tsx",
+        "src/pages/ProductDetail.tsx",
+        "src/components/ProductCard.tsx",
+        "src/components/RecentlyViewed.tsx",
+        "src/components/Layout.tsx",
+        "src/components/Button.tsx"
       ]
     }
   ]
