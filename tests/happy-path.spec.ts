@@ -23,6 +23,6 @@ test('happy path: login -> browse -> add to cart -> checkout', async ({ page }) 
   await expect(page.getByTestId('shipping')).toHaveText('Shipping: $10');
   await expect(page.getByTestId('total')).toHaveText('Total: $100');
 
-  await page.getByTestId('place-order').click();
+  await page.getByTestId('submit-order').click();
   await expect(page.getByTestId('order-confirmation')).toBeVisible();
 });
