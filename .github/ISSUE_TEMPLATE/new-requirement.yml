@@ -1,0 +1,49 @@
+name: New requirement
+description: Describe a new feature so tests can be proposed, approved and generated
+title: "[Requirement] "
+labels: ["requirement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the feature in plain language. Copilot will first propose test scenarios as a comment.
+        A person must approve them before any test code is written.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What should the customer be able to do, and why?
+      placeholder: As a customer, I can apply a discount code at checkout.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Plain statements of what must be true. Include exact values and messages. Tests take their expected values from here.
+      placeholder: |
+        1. Entering SAVE10 and clicking Apply takes 10% off the subtotal.
+        2. An invalid code shows "Invalid discount code" and changes no totals.
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page or area affected
+      placeholder: Checkout page (src/pages/Checkout.tsx)
+    validations:
+      required: false
+  - type: textarea
+    id: testids
+    attributes:
+      label: Planned data-testid values (optional)
+      placeholder: discount-input, discount-apply, discount-error, discount-line, discount-remove
+    validations:
+      required: false
+  - type: textarea
+    id: outofscope
+    attributes:
+      label: Out of scope / existing rules that must not change
+      placeholder: The free-shipping rule is unchanged and uses the subtotal before the discount.
+    validations:
+      required: false
